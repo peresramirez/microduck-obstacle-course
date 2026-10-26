@@ -74,6 +74,7 @@ wandb/
 *.mov
 *.webm
 *.gif
+!/.github/readme/*.gif
 *.zip
 *.tar
 *.tar.gz

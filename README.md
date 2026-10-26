@@ -20,7 +20,7 @@ A reproduction of NVIDIA's GTC Berlin 2026 agentic Microduck workflow, built end
 [![Real course](https://img.shields.io/badge/real%20course-39%25%20%E2%86%92%2098%25%20finish-1baf7a)](#results)
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow)](LICENSE)
 
-<img src=".github/readme/hero-4096-ducks.jpg" alt="4,096 simulated Microducks training at once on 640 lanes of the obstacle course: plywood hump, plywood steps, wet tile and box" width="900">
+<img src=".github/readme/hero-4096-ducks.gif" alt="4,096 simulated Microducks training at once on 640 lanes of the obstacle course: plywood hump, plywood steps, wet tile and box" width="900">
 
 <p><sub>4,096 Microducks practise on 640 copies of the course at once (Isaac Sim, RTX).</sub></p>
 
