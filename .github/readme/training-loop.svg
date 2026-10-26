@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 936 338" width="936" height="338" role="img" aria-labelledby="t">
+<title id="t">Training loop: course terrain and commands feed the policy, Newton simulates, a reward scores it, PPO updates the policy every 24 steps, and every 250 iterations a checkpoint is scored on the real course.</title>
+<style>
+  .bg{fill:#ffffff;stroke:#d0d7de} .ink{fill:#1f2328} .mu{fill:#59636e}
+  text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:13px}
+  .b{font-weight:600} .sm{font-size:11.5px} .hd{font-size:11.5px;font-weight:700;letter-spacing:.06em} .t{font-size:16px;font-weight:700}
+  .mac{fill:#fbf0dc;stroke:#9a5b06} .cloud{fill:#e6edf8;stroke:#3b5a8f} .ours{fill:#e1f1ea;stroke:#1d6a57}
+  .brain{fill:#f8e6f1;stroke:#9b2f7a} .test{fill:#f0e8fa;stroke:#7046a6} .ext{fill:#eef0ec;stroke:#6a746e} .safe{fill:#f8e4e0;stroke:#a3362a}
+  .f-ext{fill:#8a8780} .f-ours{fill:#2a78d6} .f-brain{fill:#1baf7a}
+  .l{fill:none;stroke:#59636e;stroke-width:1.6} .lc{fill:none;stroke:#3b5a8f;stroke-width:1.6} .lb{fill:none;stroke:#9b2f7a;stroke-width:1.6} .lt{fill:none;stroke:#7046a6;stroke-width:1.6}
+  .grid{stroke:#d0d7de;stroke-width:1} .floor{stroke:#1f2328;stroke-width:2} .dot{fill:#9b2f7a} .hit{fill:#a3362a}
+  .m{fill:#59636e} .mc{fill:#3b5a8f} .mb{fill:#9b2f7a} .mt{fill:#7046a6}
+  rect,circle{stroke-width:1.5}
+  @media (prefers-color-scheme: dark){
+    .bg{fill:#0d1117;stroke:#30363d} .ink{fill:#e6edf3} .mu{fill:#9198a1}
+    .mac{fill:#2f2310;stroke:#e3a64e} .cloud{fill:#18223a;stroke:#9db5e0} .ours{fill:#132b25;stroke:#62c3a5}
+    .brain{fill:#2f1828;stroke:#e895cc} .test{fill:#261d33;stroke:#c2a2ea} .ext{fill:#1c2120;stroke:#95a19b} .safe{fill:#321a17;stroke:#ef8b7e}
+    .l{stroke:#9198a1} .lc{stroke:#9db5e0} .lb{stroke:#e895cc} .lt{stroke:#c2a2ea}
+    .grid{stroke:#30363d} .floor{stroke:#e6edf3} .dot{fill:#e895cc} .hit{fill:#ef8b7e}
+    .m{fill:#9198a1} .mc{fill:#9db5e0} .mb{fill:#e895cc} .mt{fill:#c2a2ea}
+  }
+</style>
+<defs>
+  <marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="m" d="M0,0 L10,5 L0,10 z"/></marker>
+  <marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mc" d="M0,0 L10,5 L0,10 z"/></marker>
+  <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mb" d="M0,0 L10,5 L0,10 z"/></marker>
+  <marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mt" d="M0,0 L10,5 L0,10 z"/></marker>
+</defs>
+<rect class="bg" x="0.5" y="0.5" width="935" height="337" rx="12"/>
+<text class="ink t" x="24" y="32">How the ducks learn on our course</text>
+<text class="mu sm" x="24" y="50">The same loop runs for 4,096 ducks at once, each in its own physics world</text>
+<rect class="cloud" x="24" y="70" width="210" height="76" rx="9"/>
+<text class="ink b" x="38" y="94">Course terrain</text>
+<text class="mu sm" x="38" y="112">10 difficulty rows × 64 lanes</text>
+<text class="mu sm" x="38" y="128">heights × 0.5–1.5, wet 0.8→0.2</text>
+<rect class="ours" x="258" y="70" width="200" height="76" rx="9"/>
+<text class="ink b" x="272" y="94">Command</text>
+<text class="mu sm" x="272" y="112">75 %: steer along the route</text>
+<text class="mu sm" x="272" y="128">25 %: NVIDIA's random ones</text>
+<rect class="brain" x="482" y="70" width="210" height="76" rx="9"/>
+<text class="ink b" x="496" y="94">Policy (the brain)</text>
+<text class="mu sm" x="496" y="112">MLP 512 → 256 → 128</text>
+<text class="mu sm" x="496" y="128">61 or 125 inputs → 14 joints</text>
+<rect class="cloud" x="716" y="70" width="196" height="76" rx="9"/>
+<text class="ink b" x="730" y="94">Newton physics</text>
+<text class="mu sm" x="730" y="112">MJWarp solver, BAM servos</text>
+<text class="mu sm" x="730" y="128">50 control steps / second</text>
+<path class="l" d="M234 108 H256" marker-end="url(#am)"/>
+<path class="lb" d="M458 108 H480" marker-end="url(#ab)"/>
+<path class="lb" d="M692 108 H714" marker-end="url(#ab)"/>
+<rect class="test" x="716" y="214" width="196" height="76" rx="9"/>
+<text class="ink b" x="730" y="238">Reward</text>
+<text class="mu sm" x="730" y="256">NVIDIA's 15 terms</text>
+<text class="mu sm" x="730" y="272">+ route progress (run B)</text>
+<path class="lc" d="M814 146 V212" marker-end="url(#ac)"/>
+<rect class="brain" x="482" y="214" width="210" height="76" rx="9"/>
+<text class="ink b" x="496" y="238">PPO update</text>
+<text class="mu sm" x="496" y="256">every 24 steps × 4,096 ducks</text>
+<text class="mu sm" x="496" y="272">≈ 1.1 s on the GPU</text>
+<path class="lt" d="M716 252 H694" marker-end="url(#at)"/>
+<path class="lb" d="M587 214 V148" marker-end="url(#ab)"/>
+<rect class="test" x="24" y="214" width="210" height="76" rx="9"/>
+<text class="ink b" x="38" y="238">Checkpoint scored</text>
+<text class="mu sm" x="38" y="256">every 250 iterations</text>
+<text class="mu sm" x="38" y="272">128 ducks on the real course</text>
+<path class="lb" d="M482 252 H236" marker-end="url(#ab)"/>
+<text class="mu sm" x="262" y="226">every saved brain is tested,</text><text class="mu sm" x="262" y="242">not just trusted by its reward</text>
+<text class="mu sm" x="24" y="318">1 iteration = 24 steps × 4,096 ducks = 98,304 duck-steps · 3,000 iterations ≈ 1 hour on one RTX PRO 6000</text>
+</svg>

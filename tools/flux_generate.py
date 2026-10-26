@@ -1,9 +1,10 @@
 """Generate one image with the BFL FLUX 3 API and save it with its provenance.
 
-Usage (from isaac-obstacle-course/):
+Usage (from the repository root):
   uv run --no-project python tools/flux_generate.py OUT.png "prompt" [--aspect 16:9] [--ref IMAGE ...]
 
-Reads BFL_API_KEY from the workspace .env (../.env). Writes OUT.png and OUT.json
+Reads BFL_API_KEY from the environment, the repository's .env, or the folder above it (../.env).
+Writes OUT.png and OUT.json
 (prompt, model, aspect ratio, reference images, request id, date, cost if reported).
 """
 
@@ -18,17 +19,20 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ENDPOINT = "https://api.bfl.ai/v1/flux-3-image"
-ENV = Path(__file__).resolve().parents[2] / ".env"
+ENVS = [Path(__file__).resolve().parents[n] / ".env" for n in (1, 2)]
 FAILED = {"Error", "Failed", "Content Moderated", "Request Moderated", "Task not found"}
 
 
 def api_key() -> str:
     if os.environ.get("BFL_API_KEY"):
         return os.environ["BFL_API_KEY"]
-    for line in ENV.read_text().splitlines():
-        if line.startswith("BFL_API_KEY="):
-            return line.split("=", 1)[1].strip()
-    sys.exit(f"BFL_API_KEY not found in environment or {ENV}")
+    for env in ENVS:
+        if not env.is_file():
+            continue
+        for line in env.read_text().splitlines():
+            if line.startswith("BFL_API_KEY="):
+                return line.split("=", 1)[1].strip()
+    sys.exit(f"BFL_API_KEY not found in environment or {', '.join(map(str, ENVS))}")
 
 
 def request(url: str, key: str, body: dict | None = None) -> dict:

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 936 384" width="936" height="384" role="img" aria-labelledby="t">
+<title id="t">The pipeline: plan, FreeCAD, Blender and checks on the Mac; course, training, sensor and exam on a cloud GPU; results back on the Mac.</title>
+<style>
+  .bg{fill:#ffffff;stroke:#d0d7de} .ink{fill:#1f2328} .mu{fill:#59636e}
+  text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:13px}
+  .b{font-weight:600} .sm{font-size:11.5px} .hd{font-size:11.5px;font-weight:700;letter-spacing:.06em} .t{font-size:16px;font-weight:700}
+  .mac{fill:#fbf0dc;stroke:#9a5b06} .cloud{fill:#e6edf8;stroke:#3b5a8f} .ours{fill:#e1f1ea;stroke:#1d6a57}
+  .brain{fill:#f8e6f1;stroke:#9b2f7a} .test{fill:#f0e8fa;stroke:#7046a6} .ext{fill:#eef0ec;stroke:#6a746e} .safe{fill:#f8e4e0;stroke:#a3362a}
+  .f-ext{fill:#8a8780} .f-ours{fill:#2a78d6} .f-brain{fill:#1baf7a}
+  .l{fill:none;stroke:#59636e;stroke-width:1.6} .lc{fill:none;stroke:#3b5a8f;stroke-width:1.6} .lb{fill:none;stroke:#9b2f7a;stroke-width:1.6} .lt{fill:none;stroke:#7046a6;stroke-width:1.6}
+  .grid{stroke:#d0d7de;stroke-width:1} .floor{stroke:#1f2328;stroke-width:2} .dot{fill:#9b2f7a} .hit{fill:#a3362a}
+  .m{fill:#59636e} .mc{fill:#3b5a8f} .mb{fill:#9b2f7a} .mt{fill:#7046a6}
+  rect,circle{stroke-width:1.5}
+  @media (prefers-color-scheme: dark){
+    .bg{fill:#0d1117;stroke:#30363d} .ink{fill:#e6edf3} .mu{fill:#9198a1}
+    .mac{fill:#2f2310;stroke:#e3a64e} .cloud{fill:#18223a;stroke:#9db5e0} .ours{fill:#132b25;stroke:#62c3a5}
+    .brain{fill:#2f1828;stroke:#e895cc} .test{fill:#261d33;stroke:#c2a2ea} .ext{fill:#1c2120;stroke:#95a19b} .safe{fill:#321a17;stroke:#ef8b7e}
+    .l{stroke:#9198a1} .lc{stroke:#9db5e0} .lb{stroke:#e895cc} .lt{stroke:#c2a2ea}
+    .grid{stroke:#30363d} .floor{stroke:#e6edf3} .dot{fill:#e895cc} .hit{fill:#ef8b7e}
+    .m{fill:#9198a1} .mc{fill:#9db5e0} .mb{fill:#e895cc} .mt{fill:#c2a2ea}
+  }
+</style>
+<defs>
+  <marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="m" d="M0,0 L10,5 L0,10 z"/></marker>
+  <marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mc" d="M0,0 L10,5 L0,10 z"/></marker>
+  <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mb" d="M0,0 L10,5 L0,10 z"/></marker>
+  <marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mt" d="M0,0 L10,5 L0,10 z"/></marker>
+</defs>
+<rect class="bg" x="0.5" y="0.5" width="935" height="383" rx="12"/>
+<text class="ink t" x="24" y="32">From an idea to a trained duck</text>
+<text class="mu sm" x="24" y="50">Claude Code runs every step: FreeCAD and Blender over MCP, the cloud GPU over SSH</text>
+<text class="mu hd" x="24" y="80">ON THE MAC</text>
+<rect class="mac" x="24" y="90" width="210" height="74" rx="9"/>
+<text class="ink b" x="38" y="114">1 · Plan the course</text>
+<text class="mu sm" x="38" y="132">4 obstacles, sizes, route</text>
+<text class="mu sm" x="38" y="148">concept images (FLUX)</text>
+<path class="l" d="M234 127 H248" marker-end="url(#am)"/>
+<rect class="mac" x="250" y="90" width="210" height="74" rx="9"/>
+<text class="ink b" x="264" y="114">2 · FreeCAD</text>
+<text class="mu sm" x="264" y="132">exact, parametric shapes</text>
+<text class="mu sm" x="264" y="148">exported as STEP + mesh</text>
+<path class="l" d="M460 127 H474" marker-end="url(#am)"/>
+<rect class="mac" x="476" y="90" width="210" height="74" rx="9"/>
+<text class="ink b" x="490" y="114">3 · Blender</text>
+<text class="mu sm" x="490" y="132">materials and previews</text>
+<text class="mu sm" x="490" y="148">exported as USD + GLB</text>
+<path class="l" d="M686 127 H700" marker-end="url(#am)"/>
+<rect class="mac" x="702" y="90" width="210" height="74" rx="9"/>
+<text class="ink b" x="716" y="114">4 · Check</text>
+<text class="mu sm" x="716" y="132">size ±1 mm, metres, Z-up</text>
+<text class="mu sm" x="716" y="148">59 asset + 17 course checks</text>
+<path class="l" d="M807 164 V184 H129 V214" marker-end="url(#am)"/>
+<text class="mu sm" x="380" y="179">USD files + course manifest</text>
+<text class="mu hd" x="250" y="206">ON A CLOUD GPU · NEBIUS RTX PRO 6000</text>
+<rect class="cloud" x="24" y="216" width="210" height="74" rx="9"/>
+<text class="ink b" x="38" y="240">5 · Course in Isaac Lab</text>
+<text class="mu sm" x="38" y="258">640 lanes as terrain tiles</text>
+<text class="mu sm" x="38" y="274">wet tile with own friction</text>
+<path class="lc" d="M234 253 H248" marker-end="url(#ac)"/>
+<rect class="brain" x="250" y="216" width="210" height="74" rx="9"/>
+<text class="ink b" x="264" y="240">6 · Train (PPO)</text>
+<text class="mu sm" x="264" y="258">4,096 ducks in parallel</text>
+<text class="mu sm" x="264" y="274">from NVIDIA's walker</text>
+<path class="lc" d="M460 253 H474" marker-end="url(#ac)"/>
+<rect class="brain" x="476" y="216" width="210" height="74" rx="9"/>
+<text class="ink b" x="490" y="240">7 · Add eyes</text>
+<text class="mu sm" x="490" y="258">8 × 8 ToF = 64 inputs</text>
+<text class="mu sm" x="490" y="274">walks round the box itself</text>
+<path class="lc" d="M686 253 H700" marker-end="url(#ac)"/>
+<rect class="test" x="702" y="216" width="210" height="74" rx="9"/>
+<text class="ink b" x="716" y="240">8 · Final exam</text>
+<text class="mu sm" x="716" y="258">3 brains × 6 tests</text>
+<text class="mu sm" x="716" y="274">× 128 ducks each</text>
+<path class="lt" d="M807 290 V316" marker-end="url(#at)"/>
+<rect class="ours" x="24" y="318" width="888" height="46" rx="9"/>
+<text class="ink b" x="40" y="346">Back on the Mac:</text><text class="mu sm" x="160" y="346">trained policies (.pt) · per-duck scores (JSON) · charts · RTX videos · live Isaac Sim view (WebRTC)</text>
+</svg>

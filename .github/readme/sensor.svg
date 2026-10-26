@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 936 300" width="936" height="300" role="img" aria-labelledby="t">
+<title id="t">Side view of the head distance sensor: rays tilted 30 degrees down reach the floor 0.2 to 1.4 m ahead; with a box 1 m ahead, the top row hits the box first.</title>
+<style>
+  .bg{fill:#ffffff;stroke:#d0d7de} .ink{fill:#1f2328} .mu{fill:#59636e}
+  text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:13px}
+  .b{font-weight:600} .sm{font-size:11.5px} .hd{font-size:11.5px;font-weight:700;letter-spacing:.06em} .t{font-size:16px;font-weight:700}
+  .mac{fill:#fbf0dc;stroke:#9a5b06} .cloud{fill:#e6edf8;stroke:#3b5a8f} .ours{fill:#e1f1ea;stroke:#1d6a57}
+  .brain{fill:#f8e6f1;stroke:#9b2f7a} .test{fill:#f0e8fa;stroke:#7046a6} .ext{fill:#eef0ec;stroke:#6a746e} .safe{fill:#f8e4e0;stroke:#a3362a}
+  .f-ext{fill:#8a8780} .f-ours{fill:#2a78d6} .f-brain{fill:#1baf7a}
+  .l{fill:none;stroke:#59636e;stroke-width:1.6} .lc{fill:none;stroke:#3b5a8f;stroke-width:1.6} .lb{fill:none;stroke:#9b2f7a;stroke-width:1.6} .lt{fill:none;stroke:#7046a6;stroke-width:1.6}
+  .grid{stroke:#d0d7de;stroke-width:1} .floor{stroke:#1f2328;stroke-width:2} .dot{fill:#9b2f7a} .hit{fill:#a3362a}
+  .m{fill:#59636e} .mc{fill:#3b5a8f} .mb{fill:#9b2f7a} .mt{fill:#7046a6}
+  rect,circle{stroke-width:1.5}
+  @media (prefers-color-scheme: dark){
+    .bg{fill:#0d1117;stroke:#30363d} .ink{fill:#e6edf3} .mu{fill:#9198a1}
+    .mac{fill:#2f2310;stroke:#e3a64e} .cloud{fill:#18223a;stroke:#9db5e0} .ours{fill:#132b25;stroke:#62c3a5}
+    .brain{fill:#2f1828;stroke:#e895cc} .test{fill:#261d33;stroke:#c2a2ea} .ext{fill:#1c2120;stroke:#95a19b} .safe{fill:#321a17;stroke:#ef8b7e}
+    .l{stroke:#9198a1} .lc{stroke:#9db5e0} .lb{stroke:#e895cc} .lt{stroke:#c2a2ea}
+    .grid{stroke:#30363d} .floor{stroke:#e6edf3} .dot{fill:#e895cc} .hit{fill:#ef8b7e}
+    .m{fill:#9198a1} .mc{fill:#9db5e0} .mb{fill:#e895cc} .mt{fill:#c2a2ea}
+  }
+</style>
+<defs>
+  <marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="m" d="M0,0 L10,5 L0,10 z"/></marker>
+  <marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mc" d="M0,0 L10,5 L0,10 z"/></marker>
+  <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mb" d="M0,0 L10,5 L0,10 z"/></marker>
+  <marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mt" d="M0,0 L10,5 L0,10 z"/></marker>
+</defs>
+<rect class="bg" x="0.5" y="0.5" width="935" height="299" rx="12"/>
+<text class="ink t" x="24" y="32">The duck's eyes: an 8 × 8 distance sensor</text>
+<text class="mu sm" x="24" y="50">Side view to scale · one ray per row shown (each row has 8 rays across) · 45° × 45° field of view, tilted 30° down</text>
+<line class="floor" x1="24" y1="260" x2="912" y2="260"/>
+<rect class="brain" x="96" y="133" width="36" height="22" rx="6"/><rect class="ext" x="104" y="155" width="20" height="105"/>
+<text class="ink b sm" x="40" y="122">head sensor, 0.26 m up</text>
+<path class="lb" d="M120 143 L570 224.9"/><path class="l" stroke-dasharray="5 4" d="M570 224.9 L763.0 260"/><circle class="hit" cx="570" cy="224.9" r="5"/>
+<text class="mu sm" x="763.0" y="280" text-anchor="middle">floor would be here</text>
+<path class="lb" stroke-width="1" d="M120 143 L529.7 260"/><circle class="dot" cx="529.7" cy="260" r="4"/>
+<path class="lb" stroke-width="1" d="M120 143 L416.1 260"/><circle class="dot" cx="416.1" cy="260" r="4"/>
+<path class="lb" stroke-width="1" d="M120 143 L347.8 260"/><circle class="dot" cx="347.8" cy="260" r="4"/>
+<path class="lb" stroke-width="1" d="M120 143 L301.5 260"/><circle class="dot" cx="301.5" cy="260" r="4"/>
+<path class="lb" stroke-width="1" d="M120 143 L267.4 260"/><circle class="dot" cx="267.4" cy="260" r="4"/>
+<path class="lb" stroke-width="1" d="M120 143 L240.9 260"/><circle class="dot" cx="240.9" cy="260" r="4"/>
+<path class="lb" stroke-width="1" d="M120 143 L219.3 260"/><circle class="dot" cx="219.3" cy="260" r="4"/>
+<rect class="ext" x="570" y="192.5" width="90" height="67.5"/>
+<text class="ink b sm" x="615" y="184.5" text-anchor="middle">box, 1 m ahead</text>
+<text class="ink sm" x="675" y="214">the top row hits the box: 1.01 m</text><text class="ink sm" x="675" y="232">instead of 1.5 m to the floor</text>
+<text class="mu sm" x="219.3" y="280" text-anchor="middle">0.22 m</text>
+</svg>
