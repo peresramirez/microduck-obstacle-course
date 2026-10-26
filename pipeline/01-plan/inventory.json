@@ -1,0 +1,186 @@
+{
+  "version": 2,
+  "date": "2026-10-26",
+  "units": "metres, kilograms, Z-up",
+  "source": "plan.md v2, layout.json v2, robot-specs.md",
+  "assets": [
+    {
+      "id": "E1",
+      "name": "gentle hump",
+      "role": "walk-on",
+      "count": 1,
+      "dimensions": {
+        "length": 1.0,
+        "width": 0.6,
+        "crest": 0.033
+      },
+      "geometry": "solid under a cosine profile z(x) = crest/2 * (1 - cos(2*pi*x/length)), constant across the width; max slope = pi*crest/length = 5.9 deg",
+      "parameters_to_expose": [
+        "length",
+        "width",
+        "crest"
+      ],
+      "training_range": {
+        "crest": [
+          0.01,
+          0.044
+        ]
+      },
+      "material": {
+        "look": "light birch plywood, fine grain",
+        "friction": 1.0
+      },
+      "collider": "triangle mesh (static); not a convex hull: the concave ends would become a 4.3° straight ramp, up to 4.6 mm off (see assets/E1-gentle-hump/NOTES.md)",
+      "references": [
+        "concept/v2-e1-gentle-hump.png",
+        "video-reference/09-training-terrain.png",
+        "video-reference/10-course-props-1.png"
+      ],
+      "reference_limits": "FLUX image is illustrative; the cosine profile and sizes here are the spec",
+      "outputs": "assets/E1-gentle-hump/",
+      "status": "done"
+    },
+    {
+      "id": "E2",
+      "name": "low steps",
+      "role": "walk-on",
+      "count": 1,
+      "dimensions": {
+        "length": 1.2,
+        "width": 0.6,
+        "rise": 0.01,
+        "tread": 0.2,
+        "top_length": 0.8
+      },
+      "geometry": "two stacked plywood sheets: bottom 1.2 x 0.6 x 0.010, top 0.8 x 0.6 x 0.010 centred on it (top surface at 0.020)",
+      "parameters_to_expose": [
+        "rise",
+        "tread",
+        "top_length",
+        "width"
+      ],
+      "training_range": {
+        "rise": [
+          0.005,
+          0.015
+        ]
+      },
+      "material": {
+        "look": "light birch plywood, visible ply edges",
+        "friction": 1.0,
+        "edge_look": "7-ply birch edge (assets/_materials/birch-plywood/edge.png)"
+      },
+      "collider": "one box collider per sheet, so each tread is its own contact surface (as NVIDIA's ramp+steps asset)",
+      "references": [
+        "concept/v2-e2-low-steps.png",
+        "video-reference/04-ramp-steps-colliders.png",
+        "video-reference/05-ramp-steps-simready-validation.png"
+      ],
+      "reference_limits": "FLUX draws the top sheet off-centre and thicker than 1 cm; spec wins",
+      "outputs": "assets/E2-low-steps/",
+      "status": "done"
+    },
+    {
+      "id": "E3",
+      "name": "wet floor",
+      "role": "slippery",
+      "count": 1,
+      "dimensions": {
+        "length": 0.8,
+        "width": 0.6,
+        "thickness": 0.002
+      },
+      "geometry": "thin flat tile, flush look; 2 mm so it has a collider without being a step",
+      "parameters_to_expose": [
+        "friction"
+      ],
+      "training_range": {
+        "friction": [
+          0.2,
+          1.2
+        ]
+      },
+      "material": {
+        "look": "glossy light-grey tile with shallow clear water puddles and a thin reflective film",
+        "friction": 0.3
+      },
+      "collider": "one box collider with its own physics material (static and dynamic friction 0.3); verify how Newton combines foot and ground friction (max would cancel the low friction), see assets/E3-wet-floor/NOTES.md",
+      "references": [
+        "concept/v2-e3-wet-floor.png"
+      ],
+      "reference_limits": "water is visual only; physics is low friction, no liquid",
+      "outputs": "assets/E3-wet-floor/",
+      "status": "done"
+    },
+    {
+      "id": "E4",
+      "name": "box",
+      "role": "obstacle",
+      "count": 1,
+      "dimensions": {
+        "length": 0.2,
+        "width": 0.2,
+        "height": 0.15,
+        "wall": 0.012
+      },
+      "geometry": "closed plywood box with one hand-hole cut-out on a side face",
+      "parameters_to_expose": [
+        "length",
+        "width",
+        "height"
+      ],
+      "training_range": {
+        "position": "random in the lane",
+        "height": [
+          0.1,
+          0.2
+        ]
+      },
+      "material": {
+        "look": "birch plywood, visible ply edges",
+        "friction": 0.8
+      },
+      "collider": "one box collider (static)",
+      "references": [
+        "concept/v2-e4-box.png",
+        "video-reference/01-concept-extracted-assets.png"
+      ],
+      "reference_limits": "none",
+      "outputs": "assets/E4-box/",
+      "status": "done"
+    },
+    {
+      "id": "F",
+      "name": "floor and lane markings",
+      "role": "ground",
+      "count": 1,
+      "dimensions": {
+        "length": 6.0,
+        "width": 1.2
+      },
+      "geometry": "plane 6 x 1.2 m at z = 0; start and finish lines as 5 cm white tape painted into the texture at x 0.40 and 5.60 m (no geometry)",
+      "parameters_to_expose": [],
+      "training_range": {},
+      "material": {
+        "look": "polished light-grey concrete; white tape",
+        "friction": 1.0
+      },
+      "collider": "ground plane",
+      "references": [
+        "concept/v2-e4-box.png"
+      ],
+      "reference_limits": "none",
+      "outputs": "assets/F-floor/",
+      "status": "done"
+    }
+  ],
+  "deliverables_per_asset": [
+    "model.FCStd (if FreeCAD)",
+    "model.step (if FreeCAD)",
+    "model.blend",
+    "model.glb",
+    "model.usd (Z-up, metres)",
+    "preview.png",
+    "NOTES.md (dimensions, assumptions, checks)"
+  ]
+}

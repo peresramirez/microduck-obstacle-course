@@ -1,0 +1,24 @@
+diff --git a/source/isaaclab_tasks/isaaclab_tasks/contrib/microduck/mdp/events.py b/source/isaaclab_tasks/isaaclab_tasks/contrib/microduck/mdp/events.py
+index b67805dd7..3ca6ff917 100644
+--- a/source/isaaclab_tasks/isaaclab_tasks/contrib/microduck/mdp/events.py
++++ b/source/isaaclab_tasks/isaaclab_tasks/contrib/microduck/mdp/events.py
+@@ -12,7 +12,6 @@ from typing import TYPE_CHECKING
+ import torch
+ 
+ from isaaclab.actuators import BamActuatorCfg
+-from isaaclab.actuators.newton import read_group_parameter, write_group_parameter
+ from isaaclab.managers import SceneEntityCfg
+ 
+ if TYPE_CHECKING:
+@@ -36,6 +35,11 @@ def randomize_bam_friction(
+     asset_cfg: SceneEntityCfg = SceneEntityCfg("robot"),
+ ) -> None:
+     """Sample one friction-budget multiplier per environment and broadcast it to all BAM servos."""
++    # Imported here, not at module level: this module loads while the task config is resolved, before Kit
++    # starts, and isaaclab.actuators.newton imports Newton -> pxr (usd-exchange, OpenUSD 26.08), which then
++    # clashes with Kit's own OpenUSD 25.11 (undefined pxrInternal_v0_25_11 symbols, Kit fails to start).
++    from isaaclab.actuators.newton import read_group_parameter, write_group_parameter
++
+     asset: Articulation = env.scene[asset_cfg.name]
+     if env_ids is None:
+         env_ids = torch.arange(env.num_envs, device=env.device)

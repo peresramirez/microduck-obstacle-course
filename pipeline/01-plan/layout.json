@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "date": "2026-10-26",
+  "units": "metres",
+  "frame": "x along the lane (start → finish), y across it (top-down). Each item: x, y = min corner; w along x, d along y.",
+  "floor": {"w": 6.0, "d": 1.2, "material": "polished concrete", "friction": 1.0},
+  "route": [[0.40, 0.6], [4.85, 0.6], [5.0, 0.9], [5.4, 0.9], [5.5, 0.6], [5.58, 0.6]],
+  "items": [
+    {"id": "start",  "kind": "marker",   "label": "START",  "x": 0.10, "y": 0.45, "w": 0.30, "d": 0.30},
+    {"id": "E1",     "kind": "walk-on",  "asset": "E1", "label": "gentle hump",  "x": 0.80, "y": 0.30, "w": 1.00, "d": 0.60,
+     "params": {"length": 1.0, "width": 0.6, "crest": 0.033, "profile": "cosine", "max_slope_deg": 5.9}},
+    {"id": "E2",     "kind": "walk-on",  "asset": "E2", "label": "low steps",    "x": 2.20, "y": 0.30, "w": 1.20, "d": 0.60,
+     "params": {"levels": 2, "rise": 0.010, "tread": 0.20, "top_length": 0.80, "width": 0.6, "build": "two stacked plywood sheets: 1.2 m bottom, 0.8 m top centred"}},
+    {"id": "E3",     "kind": "slippery", "asset": "E3", "label": "wet floor",    "x": 3.80, "y": 0.30, "w": 0.80, "d": 0.60,
+     "params": {"friction": 0.3, "thickness": 0.002, "look": "glossy tile with puddles"}},
+    {"id": "E4",     "kind": "obstacle", "asset": "E4", "label": "box",          "x": 5.10, "y": 0.50, "w": 0.20, "d": 0.20,
+     "params": {"height": 0.15}},
+    {"id": "finish", "kind": "marker",   "label": "FINISH", "x": 5.60, "y": 0.45, "w": 0.30, "d": 0.30}
+  ]
+}

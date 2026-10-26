@@ -1,0 +1,51 @@
+{
+  "output": "videos/phase-2-assets/showreel-phase2.mp4",
+  "size": [1920, 1080],
+  "fps": 30,
+  "footer": "Microduck obstacle course · NVIDIA's GTC Berlin 2026 agentic workflow, rebuilt with Claude Code",
+  "segments": [
+    {"card": {"kicker": "Phase 2", "title": "Building the course", "lines": ["FreeCAD and Blender, driven by Claude Code through their MCP add-ons", "Recorded from inside the apps · every step saved and rebuildable"], "pills": ["5 assets", "59/59 asset checks", "17/17 course checks", "$0"]}, "seconds": 6},
+    {"still": "pipeline/02-course-preview/renders/overview.png", "seconds": 4, "label": "The finished course · 6 × 1.2 m"},
+
+    {"card": {"kicker": "Step 2.1", "title": "E1 · Gentle hump", "lines": ["A cosine bump the duck walks over", "Parametric in FreeCAD: length, width and crest live in a spreadsheet"], "pills": ["1.0 × 0.6 m", "crest 3.3 cm", "steepest 5.9°"]}, "seconds": 5},
+    {"clip": "videos/phase-2-assets/02-1-e1-freecad.mp4", "speed": 1.5, "label": "FreeCAD · Params sheet → cosine sketch → pad · crest 44 → 10 → 33 mm"},
+    {"clip": "videos/phase-2-assets/02-1-e1-blender.mp4", "speed": 2.0, "label": "Blender · birch plywood texture · 25 cm marker · USD + GLB export"},
+    {"still": "assets/E1-gentle-hump/preview.png", "seconds": 3, "label": "E1 preview"},
+
+    {"card": {"kicker": "Step 2.2", "title": "E2 · Low steps", "lines": ["Two stacked 1 cm plywood sheets", "Separate parts, so each step gets its own collider"], "pills": ["1.2 m + 0.8 m", "2 × 1 cm", "ply-edge texture"]}, "seconds": 5},
+    {"clip": "videos/phase-2-assets/02-2-e2-freecad.mp4", "speed": 1.0, "label": "FreeCAD · two boxes bound to Params · rise 15 → 5 → 10 mm"},
+    {"clip": "videos/phase-2-assets/02-2-e2-blender.mp4", "speed": 1.0, "label": "Blender · face veneer + 7-ply edges · two previews"},
+    {"still": "assets/E2-low-steps/preview-detail.png", "seconds": 3, "label": "1 cm steps next to a 25 cm duck"},
+
+    {"card": {"kicker": "Step 2.3", "title": "E3 · Wet floor", "lines": ["A slippery tile: friction 0.3", "The water is visual only; physics sees low grip"], "pills": ["0.8 × 0.6 m", "2 mm", "μ 0.3"]}, "seconds": 5},
+    {"card": {"kicker": "Take 1", "title": "A bug, caught", "lines": ["The exported STEP lost the tile's position (y 0–600 instead of −300–300)", "Caught by reading the export back · fixed with an App::Part · re-recorded"], "pills": []}, "seconds": 4},
+    {"clip": "videos/phase-2-assets/02-3-e3-freecad-take1.mp4", "speed": 1.5, "label": "FreeCAD · take 1 (the bug)"},
+    {"clip": "videos/phase-2-assets/02-3-e3-freecad.mp4", "speed": 1.0, "label": "FreeCAD · take 2 (fixed)"},
+    {"clip": "videos/phase-2-assets/02-3-e3-blender.mp4", "speed": 1.5, "label": "Blender · wet-tile textures · sky to reflect · puddles that read as water"},
+    {"still": "assets/E3-wet-floor/preview-detail.png", "seconds": 3, "label": "The marker reflected in a puddle"},
+
+    {"card": {"kicker": "Step 2.4", "title": "E4 · Box", "lines": ["The one obstacle the duck walks around", "Hollow plywood box with a hand-hole"], "pills": ["20 × 20 × 15 cm", "12 mm walls", "μ 0.8"]}, "seconds": 5},
+    {"clip": "videos/phase-2-assets/02-4-e4-freecad.mp4", "speed": 1.0, "label": "FreeCAD · shell − inner box − hand-hole · height 10 → 20 → 15 cm"},
+    {"clip": "videos/phase-2-assets/02-4-e4-blender.mp4", "speed": 1.5, "label": "Blender · ply edges in the hand-hole · ray-traced lighting"},
+    {"still": "assets/E4-box/preview-detail.png", "seconds": 3, "label": "The hand-hole"},
+
+    {"card": {"kicker": "Step 2.5", "title": "F · Floor and lane", "lines": ["Polished concrete; start and finish tape painted into the texture", "No geometry for the tape, so no lip for the duck's feet"], "pills": ["6 × 1.2 m", "z = 0", "μ 1.0"]}, "seconds": 5},
+    {"clip": "videos/phase-2-assets/02-5-f-freecad.mp4", "speed": 1.0, "label": "FreeCAD · lane plane bound to Params"},
+    {"clip": "videos/phase-2-assets/02-5-f-blender.mp4", "speed": 1.5, "label": "Blender · concrete + tape · four camera tries to fit 6 m"},
+    {"still": "assets/F-floor/preview.png", "seconds": 3, "label": "The lane"},
+
+    {"card": {"kicker": "Step 2.6", "title": "The whole course", "lines": ["All five exported files, placed from layout.json", "Checked together: on the floor, no overlaps, heights, route, clearance"], "pills": ["17/17 course checks", "8.8 cm clearance at E4"]}, "seconds": 5},
+    {"clip": "videos/phase-2-assets/02-6a-course-blender.mp4", "speed": 1.0, "label": "Blender · assembly from USD · overview and duck-eye cameras"},
+    {"still": "pipeline/02-course-preview/renders/duck-eye-1.png", "seconds": 2.5, "label": "Duck's eye (20 cm) · the hump"},
+    {"still": "pipeline/02-course-preview/renders/duck-eye-2.png", "seconds": 2.5, "label": "Duck's eye · the steps"},
+    {"still": "pipeline/02-course-preview/renders/duck-eye-3.png", "seconds": 2.5, "label": "Duck's eye · the wet floor"},
+    {"still": "pipeline/02-course-preview/renders/duck-eye-4.png", "seconds": 2.5, "label": "Duck's eye · the box"},
+    {"clip": "videos/phase-2-assets/02-6-course-flythrough.mp4", "speed": 1.0, "label": "Fly-through along the route"},
+
+    {"card": {"kicker": "Rebuildable", "title": "Every step re-runs from saved scripts", "lines": ["One build.sh per asset · tested by rebuilding into a scratch folder", "Previews pixel-identical (SSIM 1.000), same geometry"], "pills": []}, "seconds": 5},
+    {"clip": "videos/phase-2-assets/02-1-e1-clean-build-freecad.mp4", "speed": 1.0, "label": "E1 rebuilt from scripts · FreeCAD"},
+    {"clip": "videos/phase-2-assets/02-1-e1-clean-build-blender.mp4", "speed": 1.0, "label": "E1 rebuilt from scripts · Blender"},
+
+    {"card": {"kicker": "Next", "title": "Phase 3 · Nebius workstation", "lines": ["Isaac Sim + Isaac Lab on an RTX PRO 6000 VM", "Then the scene, training with Newton, and validation"], "pills": []}, "seconds": 5}
+  ]
+}

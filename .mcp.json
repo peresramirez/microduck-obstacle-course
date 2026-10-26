@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "blender": {
+      "command": "uvx",
+      "args": ["mcp-for-blender==2.2.4"],
+      "env": {
+        "DISABLE_TELEMETRY": "true"
+      }
+    },
+    "freecad": {
+      "command": "uvx",
+      "args": [
+        "freecad-mcp==0.1.28",
+        "--freecadcmd",
+        "/Applications/FreeCAD.app/Contents/Resources/bin/freecadcmd"
+      ]
+    }
+  }
+}

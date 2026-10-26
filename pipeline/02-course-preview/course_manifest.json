@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "date": "2026-10-26",
+  "units": "metres, Z-up",
+  "frames": {
+    "layout": "layout.json: x along the lane 0-6, y across 0-1.2, items given by their corner",
+    "lane": "x along the lane, y = 0 on the lane centre (Blender course preview, check_course.py)"
+  },
+  "robot": {
+    "usd": "microduck_allcollisions[_backlash].usd (MICRODUCK_ALLCOLLISIONS_CFG)",
+    "why": "microduck_walk.usd has sole colliders only; its body would pass through E4"
+  },
+  "open_items": [
+    "Verify how Newton/MJWarp combines foot and ground friction (MuJoCo default is max, which would cancel E3's \u03bc 0.3)",
+    "Pin Isaac Lab main to a commit (727e4e43a on 2026-10-26); the develop branch is gone",
+    "Route \u2194 E4 side clearance is 8.8 cm; widen the detour if training clips the box"
+  ],
+  "assets": [
+    {
+      "id": "F",
+      "usd": "assets/F-floor/model.usd",
+      "default_prim": "/F_floor",
+      "origin_layout": [
+        0.0,
+        0.6,
+        0.0
+      ],
+      "origin_lane": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "body": "static",
+      "notes": "assets/F-floor/NOTES.md",
+      "parts": [
+        {
+          "prim": "/F_floor/F_LaneFloor",
+          "collider": "groundPlane",
+          "static_friction": 1.0,
+          "dynamic_friction": 1.0,
+          "restitution": 0.0,
+          "physics_material": "Concrete_mu1.0",
+          "bounds_local": [
+            [
+              0.0,
+              -0.6000000238418579,
+              0.0
+            ],
+            [
+              6.000000476837158,
+              0.6000000238418579,
+              0.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "usd": "assets/E1-gentle-hump/model.usd",
+      "default_prim": "/E1_gentle_hump",
+      "origin_layout": [
+        0.8,
+        0.6,
+        0.0
+      ],
+      "origin_lane": [
+        0.8,
+        0.0,
+        0.0
+      ],
+      "body": "static",
+      "notes": "assets/E1-gentle-hump/NOTES.md",
+      "parts": [
+        {
+          "prim": "/E1_gentle_hump/E1_GentleHump",
+          "collider": "triangleMesh",
+          "static_friction": 1.0,
+          "dynamic_friction": 1.0,
+          "restitution": 0.0,
+          "physics_material": "mu1.0",
+          "bounds_local": [
+            [
+              0.0,
+              -0.30000001192092896,
+              -6.659577510360732e-17
+            ],
+            [
+              1.0,
+              0.30000001192092896,
+              0.032999999821186066
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "usd": "assets/E2-low-steps/model.usd",
+      "default_prim": "/E2_low_steps",
+      "origin_layout": [
+        2.2,
+        0.6,
+        0.0
+      ],
+      "origin_lane": [
+        2.2,
+        0.0,
+        0.0
+      ],
+      "body": "static",
+      "notes": "assets/E2-low-steps/NOTES.md",
+      "parts": [
+        {
+          "prim": "/E2_low_steps/E2_BottomSheet",
+          "collider": "box",
+          "static_friction": 1.0,
+          "dynamic_friction": 1.0,
+          "restitution": 0.0,
+          "physics_material": "mu1.0",
+          "bounds_local": [
+            [
+              0.0,
+              -0.30000001192092896,
+              0.0
+            ],
+            [
+              1.2000000476837158,
+              0.30000001192092896,
+              0.010000000707805157
+            ]
+          ]
+        },
+        {
+          "prim": "/E2_low_steps/E2_TopSheet",
+          "collider": "box",
+          "static_friction": 1.0,
+          "dynamic_friction": 1.0,
+          "restitution": 0.0,
+          "physics_material": "mu1.0",
+          "bounds_local": [
+            [
+              0.20000000298023224,
+              -0.30000001192092896,
+              0.010000000707805157
+            ],
+            [
+              1.0,
+              0.30000001192092896,
+              0.020000001415610313
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E3",
+      "usd": "assets/E3-wet-floor/model.usd",
+      "default_prim": "/E3_wet_floor",
+      "origin_layout": [
+        3.8,
+        0.6,
+        0.0
+      ],
+      "origin_lane": [
+        3.8,
+        0.0,
+        0.0
+      ],
+      "body": "static",
+      "notes": "assets/E3-wet-floor/NOTES.md",
+      "parts": [
+        {
+          "prim": "/E3_wet_floor/E3_WetTile",
+          "collider": "box",
+          "static_friction": 0.3,
+          "dynamic_friction": 0.3,
+          "restitution": 0.0,
+          "physics_material": "WetTile_mu0.3",
+          "bounds_local": [
+            [
+              0.0,
+              -0.30000001192092896,
+              0.0
+            ],
+            [
+              0.800000011920929,
+              0.30000001192092896,
+              0.0020000000949949026
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E4",
+      "usd": "assets/E4-box/model.usd",
+      "default_prim": "/E4_box",
+      "origin_layout": [
+        5.1,
+        0.6,
+        0.0
+      ],
+      "origin_lane": [
+        5.1,
+        0.0,
+        0.0
+      ],
+      "body": "static",
+      "notes": "assets/E4-box/NOTES.md",
+      "parts": [
+        {
+          "prim": "/E4_box/E4_Box",
+          "collider": "box",
+          "static_friction": 0.8,
+          "dynamic_friction": 0.8,
+          "restitution": 0.0,
+          "physics_material": "mu0.8",
+          "bounds_local": [
+            [
+              0.0,
+              -0.10000000149011612,
+              0.0
+            ],
+            [
+              0.20000000298023224,
+              0.10000000149011612,
+              0.15000000596046448
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}
